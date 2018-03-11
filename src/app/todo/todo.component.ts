@@ -8,6 +8,7 @@ import { TodoService } from './shared/todo.service';
   providers : [TodoService]
 })
 export class TodoComponent implements OnInit {
+  public disableClick:boolean;
   toDoListArray: any[];
   constructor(private toDoService: TodoService) { }
 
@@ -27,9 +28,12 @@ export class TodoComponent implements OnInit {
         })
     });
   }
-
+  
   onAdd(itemTitle) {
-    this.toDoService.addTitle(itemTitle.value);
+    if(itemTitle.value.length > 0){
+      this.toDoService.addTitle(itemTitle.value);
+    }
+    this.disableClick=true;
     itemTitle.value = null;
   }
 

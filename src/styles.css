@@ -5,3 +5,10 @@
 .backgroundcolor{
 background: green;
 }
+.disabled{
+    pointer-events: none;
+    
+}
+.nondisable{
+pointer-events: all;
+}
